@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Uploader Demo</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <section class="first_section">
+      <h1>Demo Form</h1>
+      <form method="POST" enctype="multipart/form-data" action="/uploaddata">
+        <div class="form__items">
+          <label for="Name">Name : </label>
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            id="Name"
+            name="name"
+          />
+        </div>
+
+        <div class="form__items">
+          <label for="Email">Email : </label>
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            id="Email"
+            name="email"
+          />
+        </div>
+
+        <div class="form__items">
+          <label for="Mobile">Mobile : </label>
+          <input
+            type="number"
+            placeholder="Enter Your Mobile"
+            id="Mobile"
+            name="mobile"
+          />
+        </div>
+
+        <div class="form__items">
+          <label for="Image_File">File : </label>
+          <input type="file" id="Image_File" name="images" multiple />
+        </div>
+
+        <div class="form__items">
+          <button type="submit">Submit</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section>
+      {{#each Student_Data}}
+        <h1>Name : {{name}}</h1>
+        <img
+          src="data:{{contentType}};base64,{{imageBase64}}"
+          class="small_image"
+          alt="..."
+        />
+      {{/each}}
+    </section>
+
+  </body>
+</html>
